@@ -1,7 +1,7 @@
 applications:
 - disk_quota: 1024M
-  host: dco-bot
-  name: dco-bot
+  host: hyper-issue-bot
+  name: hyper-issue-bot
   command: node bot.js
   path: .
   domain: mybluemix.net

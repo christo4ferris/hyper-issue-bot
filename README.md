@@ -1,4 +1,4 @@
-# dco-check-bot
+# hyper-issue-bot
 A webhook that checks for new issues and redirects to JIRA.
 
 *Note: if you wish to add a repository to the dco-bot already deployed, [contact me](mailto:chrisfer@us.ibm.com) for the secret key.*

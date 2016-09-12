@@ -1,6 +1,6 @@
 module.exports = {
   'auth': {
-    'clientid': 'dco-bot',
+    'clientid': 'hyper-issue-bot',
     'secret': 'shhhImhuntingwabbit'
   }
   'webhook': {

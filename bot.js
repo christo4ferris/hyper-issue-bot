@@ -8,7 +8,8 @@ var handler = createHandler(config.webhook);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 var port = (process.env.VCAP_APP_PORT || 7777);
 var please_post_jira = '\n\nWe use JIRA to track issues. Please use the \
-instructions [here]() to create a new JIRA and we\'ll be sure to give it the attention it deserves.';
+instructions [here](http://hyperledger-fabric.readthedocs.io/en/latest/CONTRIBUTING/#reporting-bugs) \
+to create a new JIRA and we\'ll be sure to give it the attention it deserves.';
 var greeting = 'Hi ';
 var thanks = ',\n\nThanks for submitting this issue!';
 var signature = '\n\nhyperbot';
@@ -17,14 +18,14 @@ function postComment(payload, msg) {
   var tmp = {};
   tmp.body = greeting + payload.issue.user.login + thanks + msg + signature;
   var postData = JSON.stringify(tmp);
-  var path = url.parse(payload.pull_request.comments_url).pathname;
+  var path = url.parse(payload.issue.comments_url).pathname;
 
   var options = {
     hostname: 'api.github.com',
     path: '/upload',
     method: 'POST',
     headers: {
-      'User-Agent': 'dco-bot',
+      'User-Agent': 'hyper-issue-bot',
       'Content-Type': 'application/vnd.github.VERSION.text+json',
       'Content-Length': postData.length
     }
@@ -79,6 +80,5 @@ handler.on('issues', function (event) {
     event.payload.issue.number);
   postComment(
     event.payload,
-    please_post_jira)
-  }
+    please_post_jira);
 });
