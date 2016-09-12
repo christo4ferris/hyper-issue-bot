@@ -7,9 +7,10 @@ var createHandler = require('github-webhook-handler');
 var handler = createHandler(config.webhook);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 var port = (process.env.VCAP_APP_PORT || 7777);
-var please_post_jira = '\n\nWe use JIRA to track issues. Please use the \
-instructions [here](http://hyperledger-fabric.readthedocs.io/en/latest/CONTRIBUTING/#reporting-bugs) \
-to create a new JIRA and we\'ll be sure to give it the attention it deserves.';
+var please_post_jira = '\n\nWe use JIRA to track issues. we are using JIRA to \
+track issues for the Hyperledger fabric project. You\'ll need a Linux ID (free) \
+at [identity.linuxfoundation.org](https://identity.linuxfoundation.org/) and \
+can post/track issues at [jira.hyperledger.org](http://jira.hyperledger.org). ';
 var greeting = 'Hi ';
 var thanks = ',\n\nThanks for submitting this issue!';
 var signature = '\n\nhyperbot';
